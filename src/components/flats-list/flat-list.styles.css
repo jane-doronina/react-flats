@@ -1,0 +1,10 @@
+.flats-list {
+  width: 60%;
+  height: auto;
+  display: grid;
+  grid-template-columns: 2fr 2fr;
+  grid-auto-rows: 230px;
+  gap: 30px;
+  margin-right: 20px;
+
+}
