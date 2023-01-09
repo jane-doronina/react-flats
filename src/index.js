@@ -7,7 +7,8 @@ import App from './components/App';
 import reportWebVitals from './reportWebVitals';
 
 import { Provider } from "react-redux";
-import { createStore, combineReducers } from "redux";
+import { createStore, combineReducers, applyMiddleware } from "redux";
+import reduxPromise from "redux-promise";
 
 import flatsReducer from "./reducers/flats-reducer";
 import selectedFlatReducer from "./reducers/selected-flat-reducer";
@@ -17,11 +18,11 @@ const reducers = combineReducers({
   selectedFlat: selectedFlatReducer
 });
 
-
+const middlewares = applyMiddleware(reduxPromise);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={createStore(reducers)}>
+  <Provider store={createStore(reducers, {}, middlewares)}>
     <App />
   </Provider>
 );
